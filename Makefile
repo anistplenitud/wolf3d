@@ -19,7 +19,7 @@ SDL := $(shell sdl2-config --cflags --libs) $(shell pkg-config --cflags --libs S
 
 all : $(OBJ)
 	make -C libft/
-	$(CC) $(OBJ) -o wolf3d $(SDL) libft/libft.a $(FLAGS)
+	$(CC) $(OBJ) -o wolf3d $(SDL) libft/libft.a $(FLAGS) $(MATH)
 
 %.o : %.c $(DEPS)
 	$(CC) -c -o $@ $< $(cSDL) $(FLAGS)
