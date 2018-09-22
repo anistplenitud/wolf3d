@@ -18,19 +18,21 @@ SDL := $(shell sdl2-config --cflags --libs) $(shell pkg-config --cflags --libs S
 .PHONY : all clean fclean re
 
 all : $(OBJ)
-	make -C libft/
-	$(CC) $(OBJ) -o wolf3d $(SDL) libft/libft.a $(FLAGS) $(MATH)
+	@make -C libft/
+	@$(CC) $(OBJ) -o wolf3d $(SDL) libft/libft.a $(FLAGS) $(MATH)
+	@echo "Compiled Successfully"
 
 %.o : %.c $(DEPS)
 	@$(CC) -c -o $@ $< $(cSDL) $(FLAGS)
-	echo "Compiled Successfully"
 
 clean :
-	make clean -C libft/
-	rm -f $(OBJ)
+	@make clean -C libft/
+	@rm -f $(OBJ)
+	@echo "clean done"
 
 fclean : clean
-	rm -f libft/libft.a
-	rm -f wolf3d
+	@rm -f libft/libft.a
+	@rm -f wolf3d
+	@echo "fclean done"
 
 re : fclean all
