@@ -22,7 +22,8 @@ all : $(OBJ)
 	$(CC) $(OBJ) -o wolf3d $(SDL) libft/libft.a $(FLAGS) $(MATH)
 
 %.o : %.c $(DEPS)
-	$(CC) -c -o $@ $< $(cSDL) $(FLAGS)
+	@$(CC) -c -o $@ $< $(cSDL) $(FLAGS)
+	echo "Compiled Successfully"
 
 clean :
 	make clean -C libft/
